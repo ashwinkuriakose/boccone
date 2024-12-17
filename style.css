@@ -53,7 +53,7 @@
 
 .container h1 {
   font-size: 40px;
-  color: #ffd17f;
+  color: #fff;
   font-weight: 600;
   text-align: center;
   letter-spacing: 4px;
@@ -63,9 +63,39 @@
 .container p {
   font-size: 16px;
   font-weight: 400;
-  color: #ffd17f;
+  color: #fff;
   max-width: 550px;
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.insta-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.insta-link a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.insta-link a:hover {
+  color: #e1306c;
+}
+
+.insta-link svg {
+  color: #fff;
+  margin-right: 8px;
+}
+
+.insta-link a:hover svg {
+  color: #e1306c;
 }
 
 @media screen and (max-width: 768px) {
@@ -89,6 +119,15 @@
 
   .container h1 {
     font-size: 30px;
+  }
+
+  .insta-link a {
+    font-size: 12px;
+  }
+
+  .insta-link svg {
+    width: 16px;
+    height: 16px;
   }
 }
 
