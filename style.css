@@ -74,6 +74,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 15px;
+  
 }
 
 .insta-link a {
@@ -83,6 +84,27 @@
   align-items: center;
   font-size: 14px;
   transition: color 0.3s ease;
+}
+
+.phone-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  
+}
+
+.phone-link a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.phone-link a:hover {
+  color: #e1306c;
 }
 
 .insta-link a:hover {
