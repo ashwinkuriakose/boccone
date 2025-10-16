@@ -141,3 +141,12 @@ footer {
   padding: 25px;
   font-size: 0.9rem;
 }
+
+/* Hide scrollbar for Instagram slider track */
+.ig-track {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.ig-track::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}

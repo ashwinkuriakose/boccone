@@ -13,20 +13,61 @@ document.getElementById('navBtn').addEventListener('click', () => {
 // Instagram placeholder grid (swap with real IG later)
 (function(){
   const pics = [
-    'https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1561758033-7e2b8a7c9bc0?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1550547660-8b912c781f47?q=80&w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1458644267420-66bc8a5f21e4?q=80&w=800&auto=format&fit=crop'
+    'assets/shawarma.jpg',
+    'assets/alfahm.jpg',
+    'assets/loaded-fries.jpg',
+    'assets/urger.jpg',
+    'assets/IMG-20251016-WA0003.jpg',
+    'assets/IMG-20251016-WA0005.jpg',
+    'assets/IMG-20251016-WA0006.jpg',
+    'assets/IMG-20251016-WA0007.jpg',
+    'assets/IMG-20251016-WA0008.jpg',
+    'assets/IMG-20251016-WA0011.jpg',
+    'assets/IMG-20251016-WA0012.jpg'
   ];
-  const grid = document.querySelector('#gallery .grid');
+  const grid = document.querySelector('#gallery .ig-track');
   const tpl = document.getElementById('igCell');
   pics.forEach(src => {
     const node = tpl.content.cloneNode(true);
     node.querySelector('img').src = src;
     grid.appendChild(node);
   });
+
+  // Slider controls
+  const prevBtn = document.getElementById('igPrev');
+  const nextBtn = document.getElementById('igNext');
+  const itemWidth = () => {
+    const first = grid.querySelector('a');
+    return first ? first.getBoundingClientRect().width + 12 /* gap */ : 200;
+  };
+  const scrollByAmount = () => grid.scrollBy({ left: -itemWidth(), behavior: 'smooth' });
+  const scrollForwardAmount = () => grid.scrollBy({ left: itemWidth(), behavior: 'smooth' });
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', scrollByAmount);
+    nextBtn.addEventListener('click', scrollForwardAmount);
+  }
+
+  // Auto-slide
+  let igAutoTimer = null;
+  function startIgAuto() {
+    stopIgAuto();
+    igAutoTimer = setInterval(() => {
+      const maxScroll = grid.scrollWidth - grid.clientWidth;
+      if (grid.scrollLeft >= maxScroll - 10) {
+        grid.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollForwardAmount();
+      }
+    }, 3000);
+  }
+  function stopIgAuto() {
+    if (igAutoTimer) clearInterval(igAutoTimer);
+  }
+  grid.addEventListener('mouseenter', stopIgAuto);
+  grid.addEventListener('mouseleave', startIgAuto);
+  grid.addEventListener('touchstart', stopIgAuto, { passive: true });
+  grid.addEventListener('touchend', startIgAuto, { passive: true });
+  startIgAuto();
 })();
 
 // Year
@@ -248,7 +289,7 @@ function proceedToOrder() {
   orderMessage += '\n\nPlease confirm my order. Thank you!';
   
   // Open WhatsApp with pre-filled message
-  const whatsappUrl = `https://wa.me/910000000000?text=${encodeURIComponent(orderMessage)}`;
+  const whatsappUrl = `https://wa.me/917012666848?text=${encodeURIComponent(orderMessage)}`;
   window.open(whatsappUrl, '_blank');
   
   // Close modal
