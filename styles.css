@@ -1,0 +1,143 @@
+/* Smooth scroll and nice selection */
+html { scroll-behavior: smooth; }
+::selection { background: #fbbf24; color: #0b1b13; }
+
+/* Hero backdrop overlay */
+.hero::before {
+  content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.45);
+}
+
+/* Glass card */
+.glass { background: rgba(255,255,255,.06); backdrop-filter: blur(8px); }
+
+:root {
+  --primary-color: #006039; /* Logo green */
+  --secondary-color: #fbbf24; /* Logo gold */
+  --swiggy-color: #fc8019;
+  --zomato-color: #e23744;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: var(--primary-color);
+  line-height: 1.6;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+header img {
+  height: 50px;
+}
+
+nav a {
+  color: white;
+  margin-left: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--secondary-color);
+}
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/hero.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 25px;
+  max-width: 800px;
+}
+
+.hero-buttons a {
+  padding: 15px 25px;
+  margin: 10px;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+}
+
+.hero-buttons a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.swiggy {
+  background-color: var(--swiggy-color);
+}
+
+.zomato {
+  background-color: var(--zomato-color);
+}
+
+.menu-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 60px 50px;
+  background-color: #fafafa;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.menu-item h3 {
+  color: var(--primary-color);
+  padding: 15px 0 20px;
+  font-size: 1.2rem;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,52 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- White outline background -->
+  <circle cx="50" cy="50" r="45" fill="white" filter="url(#shadow)"/>
+  
+  <!-- Head -->
+  <circle cx="50" cy="45" r="25" fill="#f4d03f"/>
+  
+  <!-- Chef's Hat -->
+  <ellipse cx="50" cy="25" rx="20" ry="8" fill="#f4d03f"/>
+  <path d="M30 25 Q50 15 70 25" fill="none" stroke="#2ecc71" stroke-width="2"/>
+  <path d="M35 20 Q50 10 65 20" fill="none" stroke="#2ecc71" stroke-width="1"/>
+  
+  <!-- Hair -->
+  <path d="M35 35 Q50 30 65 35 Q60 40 50 38 Q40 40 35 35 Z" fill="#2ecc71"/>
+  
+  <!-- Ears -->
+  <ellipse cx="35" cy="45" rx="3" ry="6" fill="#f4d03f" stroke="white" stroke-width="2"/>
+  <ellipse cx="65" cy="45" rx="3" ry="6" fill="#f4d03f" stroke="white" stroke-width="2"/>
+  <ellipse cx="35" cy="45" rx="1.5" ry="3" fill="#2ecc71"/>
+  <ellipse cx="65" cy="45" rx="1.5" ry="3" fill="#2ecc71"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="45" cy="42" rx="2" ry="3" fill="#2c3e50"/>
+  <ellipse cx="55" cy="42" rx="2" ry="3" fill="#2c3e50"/>
+  
+  <!-- Smile -->
+  <path d="M45 50 Q50 55 55 50" fill="none" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Hands -->
+  <ellipse cx="25" cy="65" rx="4" ry="6" fill="#f4d03f" stroke="white" stroke-width="2"/>
+  <ellipse cx="75" cy="65" rx="4" ry="6" fill="#f4d03f" stroke="white" stroke-width="2"/>
+  
+  <!-- Fork -->
+  <rect x="20" y="60" width="2" height="15" fill="#2ecc71"/>
+  <rect x="18" y="60" width="6" height="2" fill="#2ecc71"/>
+  <rect x="18" y="63" width="6" height="2" fill="#2ecc71"/>
+  <rect x="18" y="66" width="6" height="2" fill="#2ecc71"/>
+  
+  <!-- Knife -->
+  <rect x="78" y="60" width="2" height="15" fill="#2ecc71"/>
+  <path d="M78 60 L85 60 L82 65 L78 60 Z" fill="#2ecc71"/>
+  
+  <!-- Hat details -->
+  <path d="M40 20 Q50 18 60 20" fill="none" stroke="#2ecc71" stroke-width="1"/>
+  <path d="M42 17 Q50 15 58 17" fill="none" stroke="#2ecc71" stroke-width="1"/>
+</svg>

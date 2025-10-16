@@ -1,65 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boccone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boccone | Shawarma • Alfahm • Burgers • Loaded Fries</title>
+  <meta name="description" content="Boccone – Kochi's delivery-only spot for juicy Shawarma, smoky Alfahm, stacked Burgers, and Loaded Fries. Order now on Swiggy or Zomato." />
+  <meta name="theme-color" content="#065f46" />
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#006039',   // logo green
+              gold:  '#eab557',   // logo gold
+              gold2: '#ffd17f',   // logo orange
+              orange: '#f59e0b'   // logo orange
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(0,0,0,.08)'
+          }
+        }
+      }
+    }
+  </script>
 </head>
-
-<body>
-  <section class="container">
-    <div class="top-image-content">
-      <img src="logo-character.png" alt="Top Image">
+<body class="bg-neutral-950 text-white font-sans">
+  <!-- Top bar -->
+  <div class="bg-gradient-to-r bg-brand-green/60 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <p class="opacity-90">Open daily • 12:00 PM – 11:30 PM</p>
+      <div class="space-x-3">
+        <a href="https://wa.me/7012666848" class="underline underline-offset-4 hover:no-underline">WhatsApp Order</a>
+        <span class="opacity-50">|</span>
+        <a href="#contact" class="underline underline-offset-4 hover:no-underline">Kochi, Kerala</a>
+      </div>
     </div>
-    <div class="logo-content"><img src="logo.png" alt=""></div>
-    <h1>Coming Soon</h1>
-    <p>
-      Our website is coming soon! Stay tuned for updates and an exciting online experience. Thank you for your patience
-      and support.
-    </p>
-    <!-- <div class="time-content">
-      <div class="time days">
-        <span class="number"></span>
-        <span class="text">days</span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/60 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-1 group">
+          <!-- Chef Mascot -->
+          <div class="h-15 w-15 rounded-full bg-black flex items-center justify-center overflow-hidden">
+            <img src="assets/chef-mascot.png" alt="Chef Mascot" class="h-12 w-12 object-contain" />
+          </div>
+          <!-- Boccone Wordmark Logo -->
+          <img src="assets/boccone-wordmark.png" alt="Boccone" class="h-8 group-hover:scale-105 transition" />
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm pr-5">
+          <a href="#menu" class="hover:text-brand-gold">Menu</a>
+          <a href="#offers" class="hover:text-brand-gold">Offers</a>
+          <a href="#gallery" class="hover:text-brand-gold">Gallery</a>
+          <a href="#about" class="hover:text-brand-gold">About</a>
+          <a href="#contact" class="hover:text-brand-gold">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="https://www.swiggy.com/city/kochi/boccone-fort-kochi-rest1179616" target="_blank" class="hidden sm:inline-flex px-4 py-2 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-semibold hover:from-orange-600 hover:to-orange-700 transition">Order on Swiggy</a>
+          <a href="https://link.zomato.com/xqzv/rshare?id=11960278730563b10" target="_blank" class="px-4 py-2 rounded-2xl bg-gradient-to-r from-red-500 to-red-600 text-white text-sm font-semibold hover:from-red-600 hover:to-red-700 transition">Order on Zomato</a>
+          <button id="navBtn" class="md:hidden ml-1 p-2 rounded-xl border border-white/10 hover:bg-white/5" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="time hours">
-        <span class="number"></span>
-        <span class="text">hours</span>
+      <!-- Mobile nav -->
+      <div id="mobileNav" class="md:hidden hidden border-t border-white/5 py-3">
+        <div class="grid gap-2 text-sm">
+          <a href="#menu" class="block px-2 py-2 rounded-lg hover:bg-white/5">Menu</a>
+          <a href="#offers" class="block px-2 py-2 rounded-lg hover:bg-white/5">Offers</a>
+          <a href="#gallery" class="block px-2 py-2 rounded-lg hover:bg-white/5">Gallery</a>
+          <a href="#about" class="block px-2 py-2 rounded-lg hover:bg-white/5">About</a>
+          <a href="#contact" class="block px-2 py-2 rounded-lg hover:bg-white/5">Contact</a>
+        </div>
       </div>
-      <div class="time minutes">
-        <span class="number"></span>
-        <span class="text">minutes</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative hero">
+    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="assets/hero-video.mp4" type="video/mp4">
+      <source src="assets/hero-video.webm" type="video/webm">
+      <!-- Fallback image for browsers that don't support video -->
+      <img src="https://images.unsplash.com/photo-1583577612013-4fecf7bf8f17?q=80&w=2400&auto=format&fit=crop" alt="Shawarma Hero" class="absolute inset-0 w-full h-full object-cover" />
+    </video>
+    <div class="relative max-w-7xl mx-auto px-4 py-28 sm:py-36">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-brand-green/20 to-brand-gold/20 border border-brand-gold/30 text-xs tracking-wide">
+          <span class="inline-block h-2 w-2 rounded-full bg-brand-green"></span>
+          Fresh • Juicy • Fire-Grilled
+        </div>
+        <h1 class="mt-5 text-4xl sm:text-6xl font-extrabold leading-tight">Shawarma, Alfahm, Burgers & Loaded Fries</h1>
+        <p class="mt-4 text-lg text-white/90">Delivery-only goodness from <span class="font-semibold text-brand-gold">Boccone</span>. Made fresh in Kochi, packed hot, and delivered fast.</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a href="https://www.swiggy.com/city/kochi/boccone-fort-kochi-rest1179616" target="_blank" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition">Order on Swiggy</a>
+          <a href="https://link.zomato.com/xqzv/rshare?id=11960278730563b10" target="_blank" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold hover:from-red-600 hover:to-red-700 transition">Order on Zomato</a>
+          <a href="https://wa.me/7012666848" target="_blank" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold hover:from-green-600 hover:to-green-700 transition flex items-center gap-2">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+            WhatsApp Us
+          </a>
+        </div>
       </div>
-      <div class="time seconds">
-        <span class="number"></span>
-        <span class="text">seconds</span>
-      </div>
-    </div> -->
-    <div class="insta-link">
-  <a href="https://www.instagram.com/boccone.in" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-    </svg>
-    boccone.in 
-  </a>
-  
-</div>
-<div class="phone-link">
-  
-  <a href="tel:7012666848" target="_blank">
-    <img width="20" height="20"  style="margin-right: 5px;" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/phone--v1.png" alt="phone--v1"/>
-    
-    7012-666-848
-  </a>
-</div>
+    </div>
   </section>
 
+  <!-- Weekend Offer (auto visible Fri–Sun) -->
+  <section id="offers" class="relative">
+    <div id="weekendBanner" class="hidden">
+      <div class="max-w-7xl mx-auto px-4 -mt-8">
+        <div class="rounded-3xl bg-gradient-to-r from-brand-gold via-brand-orange to-brand-gold text-white p-6 shadow-soft">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-center sm:text-left">
+              <p class="text-xs uppercase tracking-widest">Weekend Special</p>
+              <p class="text-2xl sm:text-3xl font-extrabold">Buy 2 Shawarmas, Get <span class="underline decoration-2">Free Fries</span></p>
+              <p class="text-sm opacity-80">Fri–Sun only • Use code <strong>WEEKEND</strong> on Swiggy/Zomato</p>
+            </div>
+            <a href="#menu" class="px-6 py-3 rounded-2xl bg-white text-neutral-900 font-semibold hover:bg-white/90">Explore Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Menu Highlights -->
+  <section id="menu" class="py-16 sm:py-24 bg-brand-green/50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Our Bestsellers</h2>
+          <p class="mt-2 text-white/70">Street-food soul, premium quality. Tap a card to order.</p>
+        </div>
+        <a href="#fullmenu" class="hidden sm:inline-flex px-4 py-2 rounded-xl border border-brand-gold/30 hover:bg-brand-gold/10 text-brand-gold">Full Menu</a>
+      </div>
+
+       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         <!-- Shawarma Card -->
+         <div class="group rounded-3xl overflow-hidden border border-white/10 hover:border-brand-gold/40 transition bg-neutral-900/40 flex flex-col">
+           <div class="aspect-[4/3] overflow-hidden">
+             <img src="https://images.unsplash.com/photo-1625944529233-3a59e9947a46?q=80&w=1200&auto=format&fit=crop" alt="Shawarma" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+           </div>
+           <div class="p-4 flex flex-col flex-1">
+             <div class="flex-1">
+               <h3 class="font-bold text-lg">Shawarma</h3>
+               <p class="text-sm text-white/70">Kubboos & Rumali varieties available</p>
+             </div>
+             <div class="mt-3 flex items-center justify-between">
+               <span class="text-brand-gold font-semibold">From ₹70</span>
+               <button onclick="openOrderModal('Shawarma', 70)" class="px-3 py-1.5 text-xs bg-brand-gold/20 text-brand-gold rounded-lg hover:bg-brand-gold/30 hover:text-brand-gold transition font-medium">Order now →</button>
+             </div>
+           </div>
+         </div>
+
+         <!-- Al Faham Card -->
+         <div class="group rounded-3xl overflow-hidden border border-white/10 hover:border-brand-gold/40 transition bg-neutral-900/40 flex flex-col">
+           <div class="aspect-[4/3] overflow-hidden">
+             <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1200&auto=format&fit=crop" alt="Al Faham" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+           </div>
+           <div class="p-4 flex flex-col flex-1">
+             <div class="flex-1">
+               <h3 class="font-bold text-lg">Al Faham</h3>
+               <p class="text-sm text-white/70">Normal & Peri-Peri variants available</p>
+             </div>
+             <div class="mt-3 flex items-center justify-between">
+               <span class="text-brand-gold font-semibold">From ₹110</span>
+               <button onclick="openOrderModal('Al Faham', 110)" class="px-3 py-1.5 text-xs bg-brand-gold/20 text-brand-gold rounded-lg hover:bg-brand-gold/30 hover:text-brand-gold transition font-medium">Order now →</button>
+             </div>
+           </div>
+         </div>
+
+
+        <!-- Burgers Card -->
+        <div class="group rounded-3xl overflow-hidden border border-white/10 hover:border-brand-gold/40 transition bg-neutral-900/40 flex flex-col">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" alt="Burgers" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </div>
+          <div class="p-4 flex flex-col flex-1">
+            <div class="flex-1">
+              <h3 class="font-bold text-lg">Burgers</h3>
+              <p class="text-sm text-white/70">Classic Chicken & Chicken Zinger burgers.</p>
+            </div>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="text-brand-gold font-semibold">From ₹80</span>
+              <button onclick="openOrderModal('Burgers', 80)" class="px-3 py-1.5 text-xs bg-brand-gold/20 text-brand-gold rounded-lg hover:bg-brand-gold/30 hover:text-brand-gold transition font-medium">Order now →</button>
+            </div>
+          </div>
+        </div>
+
+         <!-- Loaded Fries Card -->
+         <div class="group rounded-3xl overflow-hidden border border-white/10 hover:border-brand-gold/40 transition bg-neutral-900/40 flex flex-col">
+           <div class="aspect-[4/3] overflow-hidden">
+             <img src="https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=1200&auto=format&fit=crop" alt="Loaded Fries" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+           </div>
+           <div class="p-4 flex flex-col flex-1">
+             <div class="flex-1">
+               <h3 class="font-bold text-lg">Loaded Fries</h3>
+               <p class="text-sm text-white/70">Normal & Cheesy varieties available</p>
+             </div>
+             <div class="mt-3 flex items-center justify-between">
+               <span class="text-brand-gold font-semibold">From ₹120</span>
+               <button onclick="openOrderModal('Loaded Fries', 120)" class="px-3 py-1.5 text-xs bg-brand-gold/20 text-brand-gold rounded-lg hover:bg-brand-gold/30 hover:text-brand-gold transition font-medium">Order now →</button>
+             </div>
+           </div>
+         </div>
+      </div>
+
+      <!-- Special Offers -->
+      <div class="mt-14">
+        <div class="rounded-3xl p-6 border border-white/10 bg-black flex items-center justify-between">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs bg-brand-gold text-black px-2 py-1 rounded-full font-bold">BEST DEAL</span>
+            </div>
+            <h3 class="text-2xl font-bold">Buy 2 Get 1 Free</h3>
+            <p class="mt-2 text-white/70">Choose from Kubboos or Rumali Shawarma</p>
+            <div class="mt-4 flex items-center gap-4">
+              <div class="flex items-center gap-2">
+                <span class="text-brand-gold font-extrabold text-xl">₹140</span>
+                <span class="text-white/60 text-sm">Kubboos</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-brand-gold font-extrabold text-xl">₹200</span>
+                <span class="text-white/60 text-sm">Rumali</span>
+              </div>
+            </div>
+            <button onclick="openOrderModal('Buy 2 Get 1 Special', 0)" class="mt-4 px-6 py-3 rounded-xl bg-brand-gold text-black font-semibold hover:bg-brand-gold/90 transition">Order Now</button>
+          </div>
+          <div class="ml-8 flex items-center justify-center">
+            <img src="assets/offer-wrap.png" alt="Buy 2 Get 1 Shawarma" class="w-72 h-72 object-contain rounded-2xl transform -translate-y-12 shadow-2xl" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery / Instagram Preview -->
+  <section id="gallery" class="py-16 sm:py-24 border-t border-white/5 bg-neutral-900/20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold">From the ‘Gram</h2>
+          <p class="mt-2 text-white/70">Your pics auto-sync here later. For now, a preview grid.</p>
+        </div>
+        <a href="https://instagram.com/" target="_blank" class="hidden sm:inline-flex px-4 py-2 rounded-xl border border-brand-gold/30 hover:bg-brand-gold/10 text-brand-gold">Follow on Instagram</a>
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+        <!-- Replace these with your Instagram media URLs or embed tool later -->
+        <template id="igCell">
+          <a href="https://instagram.com/" target="_blank" class="block group rounded-2xl overflow-hidden border border-white/10">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+          </a>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <div class="order-2 md:order-1">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Street-food heart. Premium craft.</h2>
+        <p class="mt-3 text-white/80 leading-relaxed">Boccone is a delivery-only kitchen in Kochi serving juicy shawarmas, smoky alfahm, stacked burgers, and dangerously good loaded fries. We marinate in-house, grill on fire, and pack fresh so every bite hits.</p>
+        <ul class="mt-5 space-y-2 text-white/80">
+          <li>• Freshly prepped every day</li>
+          <li>• House sauces & pickles</li>
+          <li>• Hygienic packing for hot delivery</li>
+        </ul>
+        <div class="mt-6 flex gap-3">
+          <a href="#menu" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-brand-green to-brand-green/90 text-white font-semibold hover:from-brand-green/90 hover:to-brand-green/80 transition">See Menu</a>
+          <a href="https://wa.me/7012666848" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold hover:from-green-600 hover:to-green-700 transition flex items-center gap-2">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+      <div class="order-1 md:order-2">
+        <div class="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-soft">
+          <img src="https://images.unsplash.com/photo-1606756790138-261d2b21cd79?q=80&w=1500&auto=format&fit=crop" alt="Kitchen" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 sm:py-24 border-t border-white/5 bg-neutral-900/30">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Find Us</h2>
+        <p class="mt-2 text-white/70">Delivery-only kitchen • Kochi, Kerala</p>
+        <div class="mt-5 grid gap-3">
+          <a href="tel:+7012666848" class="px-5 py-3 rounded-2xl border border-white/10 hover:bg-white/5">Call: +91 7012666848</a>
+          <a href="mailto:boccone.in@gmail.com" class="px-5 py-3 rounded-2xl border border-white/10 hover:bg-white/5">boccone.in@gmail.com</a>
+          <div class="flex flex-wrap gap-2">
+            <a href="https://www.swiggy.com/city/kochi/boccone-fort-kochi-rest1179616" target="_blank" class="px-4 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold hover:from-orange-600 hover:to-orange-700 transition">Swiggy</a>
+            <a href="https://link.zomato.com/xqzv/rshare?id=11960278730563b10" target="_blank" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold hover:from-red-600 hover:to-red-700 transition">Zomato</a>
+            <a href="https://wa.me/7012666848" target="_blank" class="px-4 py-2 rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold hover:from-green-600 hover:to-green-700 transition flex items-center gap-2">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+              </svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-3xl overflow-hidden border border-white/10 shadow-soft">
+        <!-- Replace src with your actual Google Map embed link -->
+        <iframe title="Boccone Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.029553563034!2d76.24857557597237!3d9.93149667420774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d35a40322fd%3A0x82233e0033dd21!2sBoccone!5e0!3m2!1sen!2sin!4v1760599188975!5m2!1sen!2sin%22%20width=%22600%22%20height=%22450%22%20style=%22border:0;%22%20allowfullscreen=%22%22%20loading=%22lazy%22%20referrerpolicy=%22no-referrer-when-downgrade" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Alternative: Direct link to your location -->
+        <div class="mt-4 text-center">
+          <a href="https://maps.app.goo.gl/YCuemUy4swhAPixN8" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-green/20 text-brand-gold hover:bg-brand-green/30 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            View on Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-green/50 border-t border-white/5 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8 items-start justify-items-start text-left">
+      <div class="col-span-2 text-left">
+        <div class="flex items-center">
+          <img src="assets/boccone-wordmark.png" alt="Boccone" class="h-8" />
+        </div>
+        <p class="mt-3 text-white/70 max-w-md">Juicy shawarma, smoky alfahm, stacked burgers, and loaded fries — crafted fresh in Kochi.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="#menu" class="hover:text-white">Menu</a></li>
+          <li><a href="#offers" class="hover:text-white">Offers</a></li>
+          <li><a href="#gallery" class="hover:text-white">Gallery</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Order</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="https://www.swiggy.com/city/kochi/boccone-fort-kochi-rest1179616" target="_blank" class="hover:text-white">Swiggy</a></li>
+          <li><a href="https://link.zomato.com/xqzv/rshare?id=11960278730563b10" target="_blank" class="hover:text-white">Zomato</a></li>
+          <li><a href="https://wa.me/7012666848" target="_blank" class="hover:text-white">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 py-6 text-center text-white/60 text-sm">
+      © <span id="year"></span> Boccone. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Order Modal -->
+  <div id="orderModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-neutral-900 rounded-3xl border border-white/10 max-w-md w-full p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-xl font-bold">Order <span id="modalItemName"></span></h3>
+          <button onclick="closeOrderModal()" class="text-white/60 hover:text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="space-y-4">
+          <!-- Variant/Variety Selection -->
+          <div id="variantSelection" class="hidden">
+            <label class="block text-sm font-medium mb-2">Choose Variant</label>
+            <div id="variantOptions" class="space-y-2">
+              <!-- Options will be populated by JavaScript -->
+            </div>
+          </div>
+          
+          <!-- Selected Items -->
+          <div id="selectedItems" class="hidden">
+            <label class="block text-sm font-medium mb-2">Your Order</label>
+            <div id="selectedItemsList" class="space-y-2">
+              <!-- Selected items will be populated here -->
+            </div>
+            <button onclick="addAnotherVariant()" class="mt-2 text-sm text-brand-gold hover:text-brand-gold/80 transition">+ Add Another Variant</button>
+          </div>
+          
+          <div id="singleQuantity" class="hidden">
+            <label class="block text-sm font-medium mb-2">Quantity</label>
+            <div class="flex items-center gap-3">
+              <button onclick="updateQuantity(-1)" class="w-8 h-8 rounded-full bg-brand-green/20 text-brand-green hover:bg-brand-green/30 transition">-</button>
+              <span id="quantity" class="text-lg font-semibold w-8 text-center">1</span>
+              <button onclick="updateQuantity(1)" class="w-8 h-8 rounded-full bg-brand-green/20 text-brand-green hover:bg-brand-green/30 transition">+</button>
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium mb-2">Special Instructions</label>
+            <textarea id="specialInstructions" placeholder="Any special requests?" class="w-full p-3 rounded-xl bg-neutral-800 border border-white/10 text-white placeholder-white/50 resize-none" rows="3"></textarea>
+          </div>
+          
+          <div class="flex items-center justify-between pt-4 border-t border-white/10">
+            <div>
+              <span class="text-sm text-white/70">Total:</span>
+              <span id="totalPrice" class="text-xl font-bold text-brand-gold ml-2">₹129</span>
+            </div>
+          </div>
+          
+          <div class="flex gap-3 pt-4">
+            <button onclick="proceedToOrder()" class="flex-1 px-4 py-3 rounded-xl bg-gradient-to-r from-brand-green to-brand-green/90 text-white font-semibold hover:from-brand-green/90 hover:to-brand-green/80 transition">
+              Order Now
+            </button>
+            <button onclick="closeOrderModal()" class="px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
   <script src="script.js"></script>
-</body>
 
+</body>
 </html>
