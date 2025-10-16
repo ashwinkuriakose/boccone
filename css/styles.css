@@ -150,3 +150,16 @@ footer {
 .ig-track::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
+
+/* Ensure buttons are always clickable */
+button {
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
+/* Fix for desktop click issues */
+.group button {
+  pointer-events: auto !important;
+  z-index: 20 !important;
+}

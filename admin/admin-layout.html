@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boccone Admin - Management Dashboard</title>
+  <meta name="theme-color" content="#065f46" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/chef-mascot.png">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#006039',
+              gold:  '#eab557',
+              gold2: '#ffd17f',
+              orange: '#f59e0b'
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-neutral-950 text-white font-sans">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-neutral-900 border-r border-white/10 flex flex-col">
+      <!-- Logo -->
+      <div class="p-6 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <img src="assets/chef-mascot.png" alt="Chef Mascot" class="h-10 w-10 object-contain" />
+          <div>
+            <h1 class="text-xl font-bold">Boccone Admin</h1>
+            <p class="text-sm text-white/70">Management Dashboard</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="admin-dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition text-white/70 hover:text-white">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+              </svg>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="admin-availability.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition text-white/70 hover:text-white">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Availability
+            </a>
+          </li>
+          <li>
+            <a href="admin-prices.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition text-white/70 hover:text-white">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+              </svg>
+              Prices
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Footer -->
+      <div class="p-4 border-t border-white/10">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 transition text-white/70 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          Back to Site
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- Top Bar -->
+      <div class="bg-neutral-900/80 border-b border-white/10 px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 id="page-title" class="text-2xl font-bold">Dashboard</h2>
+            <p id="page-description" class="text-sm text-white/70">Overview of your restaurant management</p>
+          </div>
+          <div class="text-sm text-white/70">
+            Last updated: <span id="lastUpdated">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Content -->
+      <div class="flex-1 overflow-auto">
+        <div id="page-content" class="p-6">
+          <!-- Content will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="admin-layout.js"></script>
+</body>
+</html>
